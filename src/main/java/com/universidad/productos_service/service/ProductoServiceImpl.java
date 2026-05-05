@@ -3,6 +3,8 @@ package com.universidad.productos_service.service;
 import com.universidad.productos_service.domain.Producto;
 import com.universidad.productos_service.repository.ProductoRepository;
 import org.springframework.stereotype.Service;
+import java.util.List;
+
 
 @Service
 public class ProductoServiceImpl implements ProductoService {
@@ -45,5 +47,9 @@ public class ProductoServiceImpl implements ProductoService {
     public void eliminar(Long id) {
         buscarPorId(id);
         productoRepository.deleteById(id);
+    }
+    @Override
+    public List<Producto> listarTodos() {
+        return productoRepository.findAll();
     }
 }
